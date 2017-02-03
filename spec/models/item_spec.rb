@@ -1,5 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+		@user = User.create(username:"muyaszed", email: 'muyaszed@gmail.com', password: 'abcdef', password_confirmation: 'abcdef')
+		@itenary = Itenary.create(title: "My Itenary", user_id: @user.id)
+	end
+
+	it "can be created" do
+		
+		item = Item.create(day: "1", desc:"Visit the museum")
+		expect(item).to be_valid
+	end
+
+	it "can't be created without day" do
+		
+		item = Item.create(desc:"Visit the museum")
+		expect(item).to_not be_valid
+	end
+
+	it "can't be created without desc" do
+		
+		item = Item.create(day:"1")
+		expect(item).to_not be_valid
+	end
 end
