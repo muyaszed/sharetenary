@@ -1,9 +1,9 @@
 # Sharetenary
 
 ## Model
-- user
-- itenary
-- item
+x- user
+x- itenary
+x- item
 
 ## Feature
 - user can follow other user
