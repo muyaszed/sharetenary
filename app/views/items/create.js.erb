@@ -1,0 +1,9 @@
+$(document).ready(function() {
+	
+       
+       $('#item-modal').foundation('close');
+       $("<%= escape_javascript(render @item) %>").appendTo("#item");      
+
+
+
+  });

@@ -1,0 +1,15 @@
+<%= form_for @itenary do |f| -%>
+  <div class="row">
+    <div class="medium-6 columns">
+      <label>Title
+        <%= f.text_field :title %>
+        
+      </label>
+    </div>
+    <div class="row">
+    <div class="medium-6 columns">
+      <%= f.submit "Create", :disable_with => 'Createing...' %>
+    </div>
+<% end -%>
+
+  

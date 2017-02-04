@@ -1,0 +1,20 @@
+<%= form_for [@itenary, @item], :format => :js, :remote => true do |f| -%>
+  <div class="row">
+    <div class="medium-6 columns">
+      <label>Day
+        <%= f.text_field :day %>
+        
+      </label>
+    </div>
+    <div class="row">
+    <div class="medium-6 columns">
+      <label>Description
+        <%= f.text_field :desc %>
+        
+      </label>
+    </div>
+    <div class="row">
+    <div class="medium-6 columns">
+      <%= f.submit "Create", :disable_with => 'Createing...' %>
+    </div>
+<% end -%>
