@@ -2,10 +2,13 @@
 	<div class="column small-12">
 		<h1><%=@itenary.title%></h1>
 	</div>
+	
 
 	<div class="small-12 column">
+
+		<%if @itenary.user.id == current_user.id%>
 		<p><%=link_to('New Item', 'javascript:void(0)', id: "new-item")%></p>
-		
+		<%end%>
 		
 
 	</div>

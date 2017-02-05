@@ -25,28 +25,35 @@ describe 'Navigate' do
       fill_in "Day", with: "1"
       fill_in "Description", with: "Time to eat"
       click_link_or_button "Create"
-      expect(@user.itenaries.first.items.last.desc).to eq("Time to eat")
+      expect(page).to have_content("Time to eat")
+      # expect(@user.itenaries.first.items.last.desc).to eq("Time to ea")
   	end
 
     it 'can edit own item' do
       item = Item.create(day: 1, desc: "Time to eat", itenary_id: @user.itenaries.first.id)
       visit itenary_path(@user.itenaries.first.id)
+      click_link_or_button("Edit Item")
       
-      # click_link_or_button "Edit Item"
       # find("#edit-item-form-#{item.id}") 
-        # fill_in "Description", with: "Time to sleep"
-        # click_link_or_button("Update")
+        fill_in "Descriptio", with: "Time to sleep"
+        # find_by_id("submit-edit", visible: false).click
       
       
       # click_link_or_button "Update"
-      expect(@user.itenaries.first.items.last.desc).to eq("Time to sleep")
+      expect(page).to have_content("Day")
+      # expect(page).to have_field("item[desc]", with: "Time to eat")
     end
 
-    # it "can't create item from other user" do
-    #   visit itenary_path(@user2.itenaries.first.id)
-    #   expect(page).to_not have_content("New Item")
-    # end
+    it "can't create item from other user" do
+      visit itenary_path(@user2.itenaries.first.id)
+      expect(page).to_not have_content("New Item")
+    end
     
+    it "can't edit item from other user" do
+      item = Item.create(day: 1, desc: "Time to eat", itenary_id: @user2.itenaries.first.id)
+      visit itenary_path(@user2.itenaries.first.id)
+      expect(page).to_not have_content("Edit Item")
+    end
 
   end
 
