@@ -1,0 +1,12 @@
+$(document).ready(function() {
+		console.log($("<%= escape_javascript(render @item) %>").find("#day-<%=@item.id%>").html());
+		console.log($("#item-<%=@item.id%>").find("#day-<%=@item.id%>").html());
+       $(".edit-item-form").hide();
+       
+       $("#item-<%=@item.id%>").find("#day-<%=@item.id%>").html($("<%= escape_javascript(render @item) %>").find("#day-<%=@item.id%>").html())
+       $("#item-<%=@item.id%>").find("#desc-<%=@item.id%>").html($("<%= escape_javascript(render @item) %>").find("#desc-<%=@item.id%>").html())
+         
+
+
+
+  });

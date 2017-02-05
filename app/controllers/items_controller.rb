@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 	def create
 		
 		@item = Item.create(item_params)
-		@item.itenary_id = params[:itenary_id]
+		# @item.itenary_id = params[:itenary_id]
 
 
 
@@ -21,9 +21,24 @@ class ItemsController < ApplicationController
 
 	end
 
+	def update
+		@item = Item.find(params[:id])
+		respond_to do |format|
+	      if @item.update(item_params)
+	        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+	        format.json { render :show, status: :ok, location: @item }
+	        format.js
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @post.errors, status: :unprocessable_entity }
+	      end
+    	end
+
+	end
+
 	private
 
 	def item_params
-		params.require(:item).permit(:day, :desc)
+		params.require(:item).permit(:day, :desc, :itenary_id)
 	end
 end

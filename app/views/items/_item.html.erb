@@ -1,13 +1,21 @@
-<div class="small-12 column">
+<div id="item-<%=item.id%>" class="small-12 column">
 		<div class="row">
 			<div class="small-2 column">
-				<h2>Day <%=item.day%></h2>
+				<h2 id="day-<%=item.id%>">Day <%=item.day%></h2>
 			</div>
-			<div class="small-10 column">
-				<p><%=item.desc%></p>
+			<div class="small-8 column">
+				<p id="desc-<%=item.id%>"><%=item.desc%></p>
+			</div>
+			<div class="small-2 column">
+				<p><%=link_to('Edit Item', 'javascript:void(0)', id: "button-#{item.id}", class: "edit-button button button-default", onclick: "openEdit(this.id); return false;")%></p>
 			</div>
 		</div>
 	</div> 
 
 
-	
+<div class="row edit-item-form" id="edit-item-form-<%=item.id%>" style="display: none">
+	<%=render "shared/edit_form", :item => item%>
+	<button class="close-button" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

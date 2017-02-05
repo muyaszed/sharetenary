@@ -1,3 +1,12 @@
 // Place all the styles related to the itenaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#item-form, .edit-item-form {
+	display: none;
+	background: yellow;
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	top: 20vh;
+	left: 30vw;
+}

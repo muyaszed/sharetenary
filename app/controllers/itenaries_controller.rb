@@ -8,7 +8,8 @@ class ItenariesController < ApplicationController
 	def show 
 		@itenary = Itenary.find(params[:id])
 		@item = Item.new
-		@items = @itenary.items.all
+		@items = @itenary.items.order(created_at: :asc).all
+		gon.currentItems = @items
 		
 		
 	end

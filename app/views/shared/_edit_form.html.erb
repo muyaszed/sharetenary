@@ -1,6 +1,5 @@
-<%= form_for(@item, remote: true) do |f| %>
+<%= form_for(item, :method => :put, remote: true) do |f| -%>
   <div class="row">
-  
     <div class="medium-6 columns">
       <label>Day
         <%= f.text_field :day %>
@@ -18,12 +17,7 @@
   </div>
   <div class="row">
     <div class="medium-6 columns">
-     <%=f.hidden_field :itenary_id, :value => @itenary.id%>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-6 columns">
-      <%= f.submit "Create" %>
+      <%= f.submit "Update", id: "submit-#{item.id}" %>
     </div>
   </div>
 <% end -%>

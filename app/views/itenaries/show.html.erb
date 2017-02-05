@@ -4,7 +4,7 @@
 	</div>
 
 	<div class="small-12 column">
-		<p><%=link_to('New Item', 'javascript:void(0)', data: { open: "item-modal" })%></p>
+		<p><%=link_to('New Item', 'javascript:void(0)', id: "new-item")%></p>
 		
 		
 
@@ -22,9 +22,14 @@
 
 </div>
 
-<div class="reveal" id="item-modal" data-reveal>
-		  <%=render "shared/item_form"%>
-		  <button class="close-button" data-close aria-label="Close modal" type="button">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
+<div class="row" id="item-form">
+	<%=render "shared/item_form"%>
+	<button class="close-button" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+
+
+
