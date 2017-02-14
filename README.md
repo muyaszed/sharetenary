@@ -6,7 +6,7 @@ x- itenary
 x- item
 
 ## Feature
-- user can follow other user
+- X user can follow other user
 - user can like itenary
 - user can share itenary
 - user can bookmark itenary
