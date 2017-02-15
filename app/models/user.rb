@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_follows, source: :followed
   has_many :followers, through: :passive_follows, source: :follower
 
+  has_many :likes
+  has_many :liked_itenary, through: :likes, source: :itenary
+
   validates :username,
   :presence => true,
   :uniqueness => {
