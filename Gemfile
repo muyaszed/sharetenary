@@ -53,5 +53,6 @@ end
 gem 'devise'
 gem 'foundation-rails'
 gem 'gon', '~> 6.1'
+gem 'social-share-button'
 
 

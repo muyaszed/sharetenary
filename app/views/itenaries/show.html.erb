@@ -28,14 +28,14 @@
 
 <div class="row">
 	<%if @itenary.user.id != current_user.id%>
-	<div class="small-6 column">
+	<div class="small-4 column">
 		<%if @itenary.like_by? current_user %>
 			<p><%= link_to 'UNLIKE', unlike_itenary_path, method: :post %></p>
 		<%else%>
 			<p><%= link_to 'LIKE', like_itenary_path, method: :post %></p>
 		<%end%>
 	</div>
-	<div class="small-6 column">
+	<div class="small-4 column">
 		<%if @itenary.bookmarked_by? current_user %>
 			<p><%= link_to 'UNBOOKMARK', unbookmark_itenary_path, method: :post %></p>
 		<%else%>
@@ -43,13 +43,12 @@
 		<%end%>
 		
 	</div>
-	
-
-		
-
-
 		
 	<%end%>
+	<div class="small-4 column">
+		<%= social_share_button_tag(@itenary.title) %>
+		
+	</div>
 		
 </div>
 
