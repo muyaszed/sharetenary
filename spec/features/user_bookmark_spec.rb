@@ -22,7 +22,7 @@ describe "registed user" do
 		visit itenary_path(@itenary)
 		click_link_or_button 'BOOKMARK'
 		current_bookmarked = @itenary.bookmarked.count
-		click_link_or_button 'UNLIKE'
+		click_link_or_button 'UNBOOKMARK'
 		expect(@itenary.bookmarked.count).to be < current_bookmarked
 	end
 end

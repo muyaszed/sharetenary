@@ -18,4 +18,16 @@ class Itenary < ApplicationRecord
   def like_by?(other_user)
     liking_user.include?(other_user)
   end
+
+  def bookmark(user)
+    bookmarked << user
+  end
+
+  def unbookmark(user)
+    bookmarked.delete(user)
+  end
+
+  def bookmarked_by?(other_user)
+    bookmarked.include?(other_user)
+  end
 end

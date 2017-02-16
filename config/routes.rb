@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   post ':id/like_itenary', to: 'likes#like_itenary', as: :like_itenary
   post ':id/unlike_itenary', to: 'likes#unlike_itenary', as: :unlike_itenary
 
+  post ':id/bookmark_itenary', to: 'bookmarks#bookmark_itenary', as: :bookmark_itenary
+  post ':id/unbookmark_itenary', to: 'bookmarks#unbookmark_itenary', as: :unbookmark_itenary
+
   # resources :users do
   #   member do
   #     get :following, :followers
