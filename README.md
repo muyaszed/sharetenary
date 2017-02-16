@@ -11,6 +11,6 @@ x- item
 
 - user can share itenary
 	https://github.com/huacnlee/social-share-button
-- user can bookmark itenary
+- X user can bookmark itenary
 - user can print itenary
 	https://github.com/mileszs/wicked_pdf
