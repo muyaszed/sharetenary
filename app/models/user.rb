@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_itenary, through: :likes, source: :itenary
 
+  has_many :bookmarks
+  has_many :bookmarked_itenary, through: :bookmarks, source: :itenary
+
   validates :username,
   :presence => true,
   :uniqueness => {
