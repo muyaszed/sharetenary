@@ -15,3 +15,4 @@
 
 # Ignore html files
 /frontend
+.env
