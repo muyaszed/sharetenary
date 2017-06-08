@@ -15,7 +15,7 @@ class ItenariesController < ApplicationController
 			format.pdf do
 				render pdf: "my vacation",
 				template: "itenaries/show.html.erb",
-				layout: 'pdf.html'
+				layout: 'application.html'
 				
 
 			end

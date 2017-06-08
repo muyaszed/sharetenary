@@ -8,10 +8,11 @@
     <%= include_gon %>
     
     <%= csrf_meta_tags %>
-  
+    <%= wicked_pdf_stylesheet_link_tag "application" -%>
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= wicked_pdf_stylesheet_link_tag "application" -%>
   </head>
   <navbar>
   <%=render 'shared/navbar'%>
