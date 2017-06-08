@@ -10,6 +10,16 @@ class ItenariesController < ApplicationController
 		@item = Item.new
 		@items = @itenary.items.order(created_at: :asc).all
 		gon.currentItems = @items
+		respond_to do |format|
+			format.html
+			format.pdf do
+				render pdf: "my vacation",
+				template: "itenaries/show.html.erb",
+				layout: 'pdf.html'
+				
+
+			end
+		end
 		
 		
 	end

@@ -47,7 +47,7 @@
 	<%end%>
 	<div class="small-4 column">
 		<%= social_share_button_tag(@itenary.title) %>
-		
+		<%= link_to 'Create PDF document', itenary_path(@itenary, :format => :pdf) %>
 	</div>
 		
 </div>
