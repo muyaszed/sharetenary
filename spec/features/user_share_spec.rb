@@ -11,7 +11,7 @@ describe "registed user" do
 	it 'can share itinerary' do
 		visit itenary_path(@itenary)
 		
-		expect(page).to have_content("SHARE")
+		expect(page).to have_css(".social-share-button")
 	end
 
 	
