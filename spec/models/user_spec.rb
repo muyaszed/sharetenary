@@ -40,7 +40,9 @@ RSpec.describe User, type: :model do
 		end
 
 		describe "with likes" do
-			
+			it { should have_many(:likes)}
+			it { should have_many(:liked_itenary).through(:likes).source(:itenary)}
+
 		end
 	end
 

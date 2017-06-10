@@ -24,10 +24,23 @@ RSpec.describe Itenary, type: :model do
 
 	describe "Itenarary associations" do
 
-		it { should belong_to(:user)}
+		describe "with user" do
 
-		it { should have_many(:items)}
+			it { should belong_to(:user)}
 
+		end
+
+		describe "with items" do
+
+			it { should have_many(:items)}
+
+		end
+
+		describe "with likes" do
+
+			it {should have_many(:likes)}
+			it {should have_many(:liking_users).through(:likes).source(:user)}
+		end
 		
 	end
 end

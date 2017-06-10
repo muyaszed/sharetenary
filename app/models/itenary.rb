@@ -2,21 +2,21 @@ class Itenary < ApplicationRecord
   belongs_to :user
   has_many :items
   has_many :likes
-  has_many :liking_user, through: :likes, source: :user
+  has_many :liking_users, through: :likes, source: :user
   has_many :bookmarks
   has_many :bookmarked, through: :bookmarks, source: :user
   validates :title, :presence => true
 
   def like(user)
-  	liking_user << user
+  	liking_users << user
   end
 
   def unlike(user)
-  	liking_user.delete(user)
+  	liking_users.delete(user)
   end
 
   def like_by?(other_user)
-    liking_user.include?(other_user)
+    liking_users.include?(other_user)
   end
 
   def bookmark(user)

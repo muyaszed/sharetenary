@@ -1,9 +1,8 @@
 <%= form_for(@item, format: :js, remote: true) do |f| %>
   <div class="row">
-  
     <div class="medium-12 columns">
-      <label>Day
-        <%= f.text_field :day %>
+      <label>Day <span id="day-numbering"></span>
+        <%= f.hidden_field :day%>
         
       </label>
     </div>

@@ -21,28 +21,31 @@
 </div>
 <div id="item" class="row">
 	
-		
+		<ul id="item-list" style="list-style-type: none">
 
-		<%=render partial: "items/item", collection: @items%>	
+			<%=render partial: "items/item", collection: @items%>	
+
+		</ul>
+
 </div>
 
 <div class="row">
 	<%if @itenary.user.id != current_user.id%>
-	<div class="small-4 column">
-		<%if @itenary.like_by? current_user %>
-			<p><%= link_to 'UNLIKE', unlike_itenary_path, method: :post %></p>
-		<%else%>
-			<p><%= link_to 'LIKE', like_itenary_path, method: :post %></p>
-		<%end%>
-	</div>
-	<div class="small-4 column">
-		<%if @itenary.bookmarked_by? current_user %>
-			<p><%= link_to 'UNBOOKMARK', unbookmark_itenary_path, method: :post %></p>
-		<%else%>
-			<p><%= link_to 'BOOKMARK', bookmark_itenary_path, method: :post %></p>
-		<%end%>
-		
-	</div>
+		<div class="small-4 column">
+			<%if @itenary.like_by? current_user %>
+				<p><%= link_to 'UNLIKE', unlike_itenary_path, method: :post %></p>
+			<%else%>
+				<p><%= link_to 'LIKE', like_itenary_path, method: :post %></p>
+			<%end%>
+		</div>
+		<div class="small-4 column">
+			<%if @itenary.bookmarked_by? current_user %>
+				<p><%= link_to 'UNBOOKMARK', unbookmark_itenary_path, method: :post %></p>
+			<%else%>
+				<p><%= link_to 'BOOKMARK', bookmark_itenary_path, method: :post %></p>
+			<%end%>
+			
+		</div>
 		
 	<%end%>
 	<div class="small-4 column">
@@ -55,6 +58,7 @@
 
 <div class="row" id="item-form">
 	<%=render "shared/item_form"%>
+
 	<button class="close-button" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
