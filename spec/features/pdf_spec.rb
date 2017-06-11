@@ -13,8 +13,9 @@ feature "pdf generation" do
 
 		login_form.visit_page.sign_in(user)
 		itenary_page.visit_page(itenary).print_pdf
-		convert_pdf_to_page
+		
 		expect(page.response_headers).to have_content("application/pdf")
+		convert_pdf_to_page
 		expect(page).to have_content("#{itenary.title}")
 	end
 end

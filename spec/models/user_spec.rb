@@ -44,6 +44,11 @@ RSpec.describe User, type: :model do
 			it { should have_many(:liked_itenary).through(:likes).source(:itenary)}
 
 		end
+
+		describe "with bookmarks" do
+			it { should have_many(:bookmarks)}
+			it { should have_many(:bookmarked_itenary).through(:bookmarks).source(:itenary)}
+		end
 	end
 
 	describe "User method" do

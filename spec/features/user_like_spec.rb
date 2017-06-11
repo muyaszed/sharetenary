@@ -11,18 +11,18 @@ describe "registed user" do
 
 
 	it 'can like itinerary' do
-		current_like = @itenary.liking_user.count
+		current_like = @itenary.liking_users.count
 		visit itenary_path(@itenary)
 		click_link_or_button 'LIKE'
-		expect(@itenary.liking_user.count).to be > current_like
+		expect(@itenary.liking_users.count).to be > current_like
 	end
 
 	it 'can unlike itinearary' do
 		
 		visit itenary_path(@itenary)
 		click_link_or_button 'LIKE'
-		current_like = @itenary.liking_user.count
+		current_like = @itenary.liking_users.count
 		click_link_or_button 'UNLIKE'
-		expect(@itenary.liking_user.count).to be < current_like
+		expect(@itenary.liking_users.count).to be < current_like
 	end
 end

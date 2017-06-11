@@ -22,7 +22,6 @@ describe 'Navigate' do
   	it "can create item from own itenary" do
   		visit itenary_path(@user.itenaries.first.id)
       click_link_or_button "New Item"
-      fill_in "Day", with: "1"
       fill_in "Description", with: "Time to eat"
       click_link_or_button "Create"
       expect(page).to have_content("Time to eat")
