@@ -6,7 +6,7 @@ describe "registed user" do
 			@first_user = FactoryGirl.create(:user)
 			@second_user = FactoryGirl.create(:second_user)
 			login_as(@first_user, :scope => :user)
-			visit user_path(@second_user)
+			visit user_profile_path(@second_user, @second_user.profile)
 			click_link_or_button 'Follow'
 	end
 
@@ -31,7 +31,7 @@ describe "registed user" do
 	context 'unfollow' do
 		it " can unfollow" do
 			current_count = @first_user.following.count
-			visit user_path(@second_user)
+			visit user_profile_path(@second_user, @second_user.profile)
 			click_link_or_button 'Unfollow'
 			expect(@first_user.following.count).to be < current_count
 		end

@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="column small-4">
+		<div class="row" id="user-avatar">
+			<%=@profile.user.username %>
+		</div>
+
+		<div class="row" id="user-stats">
+			<div class="small-12 column" id="user-following">
+				Following: <%=@profile.user.following.count%>
+			</div>
+			<div class="small-12 column" id="user-followers">
+				Followers: <%=@profile.user.followers.count%>
+			</div>
+		</div>
+
+
+			
+
+		
+		<%if @profile.user_id != current_user.id%>
+
+			<%if current_user.following? @profile.user %>
+				<%= link_to 'Unfollow', unfollow_user_path, method: :post, class: "button follow-button" %>
+			<%else%>
+				<%= link_to 'Follow', follow_user_path, method: :post, class: "button follow-button" %>
+			<%end%>
+		<%end%>
+	</div>
+	<div class="column small-8">
+		<div class="row">
+			<div class="small-12 column" id="user-itenary-list">
+
+			<%@itenaries.each do |itenary| %>
+				<div class="small-12 column" >
+					<%=itenary.title%>
+				</div>
+			<%end%>
+			</div>
+		</div>
+		<div class="row">
+			<%if @profile.user_id == current_user.id%>
+			
+				<div class="small-12 column" id="user-bookmarked-list">
+				<%@bookmarks.each do |itenary| %>
+
+					<div class="small-12 column">
+						<%=bookmark.title%>	
+					</div>
+					
+				<%end%>
+				</div>
+
+			<%end%>
+
+			
+			
+		</div>
+		
+	</div>
+</div>
