@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :itenaries 
   resources :items
   resources :users, only: [:show, :index] do
-    resources :profiles, only: [:show]
+    resources :profiles, only: [:show, :update]
   end
   # resources :follows,       only: [:create, :destroy]
   post ':user_id/follow_user', to: 'follows#follow_user', as: :follow_user
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   post ':id/bookmark_itenary', to: 'bookmarks#bookmark_itenary', as: :bookmark_itenary
   post ':id/unbookmark_itenary', to: 'bookmarks#unbookmark_itenary', as: :unbookmark_itenary
+
+  
 
   # resources :users do
   #   member do

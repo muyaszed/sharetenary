@@ -2,7 +2,19 @@
 	<div class="column small-4">
 		<div class="row" id="user-avatar">
 			<%=@profile.user.username %>
+
+			<%if @profile.user_id == current_user.id%>
+				<div id="user-upload-button" class="small-12 column">
+					<%= form_for @profile, url: {method: :put} do |f| %>
+						<%= f.file_field :avatar %>
+						<%= f.submit %>
+					<% end %>
+						
+					
+				</div>
+			<%end%>
 		</div>
+
 
 		<div class="row" id="user-stats">
 			<div class="small-12 column" id="user-following">
@@ -58,3 +70,4 @@
 		
 	</div>
 </div>
+

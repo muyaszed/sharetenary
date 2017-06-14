@@ -10,80 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216140809) do
+ActiveRecord::Schema.define(version: 20170613153548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "itenary_id"
+    t.integer "user_id"
+    t.integer "itenary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["itenary_id"], name: "index_bookmarks_on_itenary_id", using: :btree
-    t.index ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+    t.index ["itenary_id"], name: "index_bookmarks_on_itenary_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["followed_id"], name: "index_follows_on_followed_id", using: :btree
-    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true, using: :btree
-    t.index ["follower_id"], name: "index_follows_on_follower_id", using: :btree
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_follows_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "day"
-    t.text     "desc"
-    t.integer  "itenary_id"
+    t.string "day"
+    t.text "desc"
+    t.integer "itenary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["itenary_id"], name: "index_items_on_itenary_id", using: :btree
+    t.index ["itenary_id"], name: "index_items_on_itenary_id"
   end
 
   create_table "itenaries", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "user_id"
+    t.string "title"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_itenaries_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_itenaries_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "itenary_id"
-    t.integer  "user_id"
+    t.integer "itenary_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["itenary_id"], name: "index_likes_on_itenary_id", using: :btree
-    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+    t.index ["itenary_id"], name: "index_likes_on_itenary_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "rank"
+    t.integer "user_id"
+    t.string "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "username"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
