@@ -2,6 +2,10 @@
 	<div class="column small-4">
 		<div class="row" id="user-avatar">
 			<%=@profile.user.username %>
+			<div id="avatar-image" class="small-12 column">
+				<%= image_tag("#{@profile.avatar.avatar.url}", size: '100') %>
+			</div>
+			
 
 			<%if @profile.user_id == current_user.id%>
 				<div id="user-upload-button" class="small-12 column">

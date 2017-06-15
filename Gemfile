@@ -58,5 +58,10 @@ gem 'foundation-rails'
 gem 'gon', '~> 6.1'
 gem 'social-share-button'
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
+gem 'figaro'
 
 

@@ -16,3 +16,6 @@
 # Ignore html files
 /frontend
 .env
+
+# Ignore application configuration
+/config/application.yml
