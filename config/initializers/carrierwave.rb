@@ -27,7 +27,7 @@ CarrierWave.configure do |config|
 end
 
 CarrierWave.configure do |config|
-  config.fog_provider = 'Fog/google'
+  config.fog_provider = 'fog/google'
   config.fog_credentials = {
     provider: 'Google',
     google_storage_access_key_id: ENV['google_storage_access_key_id'],
