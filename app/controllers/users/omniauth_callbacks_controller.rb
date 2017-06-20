@@ -4,17 +4,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	end
 
 
+
 	private
 
 	def callback_from(provider)
 		provider = provider.to_s
-
-		@user = User.find_for_oauth(request.env['omniauth.auth'])
+		
+		@user = Authentication.find_for_oauth(request.env['omniauth.auth'])
 
 		if @user.persisted?
 			sign_in_and_redirect @user,  :event => :authentication
 			# set_flash_message(:notice, :succes, :kind => provider.capitalize) if is_navigational_format?
-			flash[:notice] = "You are succesfully login using Facebook"
+			case provider
+				when "facebook" 
+					flash[:notice] = "You are succesfully login using Facebook"
+			
+
+			end
 		else
 			session["devise.#{provider}_data"] = request.env["omniauth.auth"]
 			redirect_to new_user_registration_url

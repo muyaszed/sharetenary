@@ -15,29 +15,27 @@ class LoginForm
 
 	def mock_auth_hash
 
-    # The mock_auth configuration allows you to set per-provider (or default)
-    # authentication hashes to return during integration testing.
-    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-	  :provider => 'facebook',
-	  :uid => '123545',
-	  :info => {
-	  	:name => 'mockuser',
-	  	:email => 'mock_user_email@test.com'
-	  }
-	  # etc.
-	})
+	    # The mock_auth configuration allows you to set per-provider (or default)
+	    # authentication hashes to return during integration testing.
+	    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
 
-    self
-  end
+		  :provider => 'facebook',
+		  :uid => '123545',
+		  :info => {
+		  	:name => 'mockuser',
+		  	:email => 'mockemail@test.com'
+		  }
+		  # etc.
+		})
+
+	    self
+	  end
 
 	def social_login(name)
 		case name
 		when "facebook"
 			click_on("Facebook")
-		when "twitter"
-			click_on("Twitter")
-		when "insta"
-			click_on("Instagram")
+		
 
 		end
 	end

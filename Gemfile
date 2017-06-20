@@ -66,3 +66,6 @@ gem 'figaro'
 gem 'omniauth-facebook'
 
 
+
+
+
