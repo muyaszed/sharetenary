@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe 'Navigate' do
 
   before do
@@ -22,6 +23,7 @@ describe 'Navigate' do
   	it "can create item from own itenary" do
   		visit itenary_path(@user.itenaries.first.id)
       click_link_or_button "New Item"
+      first('input#item_day', visible: false).set("1")
       fill_in "Description", with: "Time to eat"
       click_link_or_button "Create"
       expect(page).to have_content("Time to eat")
@@ -34,7 +36,7 @@ describe 'Navigate' do
       click_link_or_button("Edit Item")
       
       # find("#edit-item-form-#{item.id}") 
-        fill_in "Descriptio", with: "Time to sleep"
+        fill_in "Description", with: "Time to sleep"
         # find_by_id("submit-edit", visible: false).click
       
       
@@ -52,6 +54,29 @@ describe 'Navigate' do
       item = Item.create(day: 1, desc: "Time to eat", itenary_id: @user2.itenaries.first.id)
       visit itenary_path(@user2.itenaries.first.id)
       expect(page).to_not have_content("Edit Item")
+    end
+
+    it "can only delete the last item" do
+      item1 = Item.create(day: 1, desc: "Time to eat", itenary_id: @user.itenaries.first.id)
+      item2 = Item.create(day: 2, desc: "Time to sleep", itenary_id: @user.itenaries.first.id)
+      visit itenary_path(@user.itenaries.first.id)
+
+      expect(page).not_to have_css("#delete-button-#{item1.id}")
+      expect(page).to have_css("#delete-button-#{item2.id}")
+      
+      # find("#delete-button-#{item2.id}").click
+      click_on("Delete Item")
+      
+        click_on("Confirm")
+      
+      
+      expect(page).not_to have_content("Time to sleep")
+      
+      
+      
+      
+      
+      
     end
 
   end

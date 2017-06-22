@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
 
 
 		respond_to do |format|
-			# byebug
-			if @item.save
+			
+			if @item.save!
 				# format.html { redirect_to @item.itenary, notice: 'Comment was successfully created.' }
 				format.js 
 			else
@@ -34,6 +34,16 @@ class ItemsController < ApplicationController
 	      end
     	end
 
+	end
+
+	def destroy
+		@item = Item.find(params[:id])
+		@item.destroy
+		respond_to do |format|
+	     
+	      
+	      format.js
+	    end
 	end
 
 	private

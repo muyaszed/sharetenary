@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	
        
-       $("#item-form").hide();
-       $("<%= escape_javascript(render @item) %>").appendTo("#item-list");
+       $(".edit-item-form").hide();
+       
 	   $("#item-list").load(location.href + " li");
       	<!-- hideDeleteButton(); -->
        

@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
 	$("#new-item").on("click", function() {
-
+		// $("#item-list").load(" #item-list");
 		$("#item-form").show();
-		// console.log($("#item-list").children("li").length)
+		console.log($("#item-list").children("li").length)
 		if ($("#item-list").children("li").length === 0) {
 			$("#day-numbering").html("1");
 			$("#item_day").val("1");
@@ -25,12 +25,23 @@ $(document).ready(function() {
 		$(".edit-item-form").hide();
 	})
 
+	//allow only the last item to have delete button
+	// hideDeleteButton();
+	
+	
+
+
 
 });
 
 function openEdit(id) {
 		
-		var num = id.slice(7);
-
-		$("#edit-item-form-"+num).show()
+		var num = id.slice(12);
+		console.log(num);
+		$("#edit-item-form-"+num).show();
 	}
+
+function openDel(id) {
+	var num = id.slice(14);
+	$("#delete-item-form-"+num).show();
+}

@@ -18,3 +18,10 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+function hideDeleteButton() {
+		var lists = $("#item-list").children("li");
+		for (i=0; i<lists.length-1; i++) {
+			$(lists[i]).find(".delete-button").css("visibility", "hidden");
+		}
+	}
