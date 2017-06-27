@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
 		@item.destroy
 		respond_to do |format|
 	     
-	      
+	      format.html { redirect_to @item.itenary, notice: 'Item was successfully updated.' }
 	      format.js
 	    end
 	end

@@ -19,6 +19,17 @@
 
 $(function(){ $(document).foundation(); });
 
+$(document).ready(function() {
+	if (Foundation.MediaQuery.atLeast('medium')) {
+	// console.log($("#logo").children(":first").html());
+	 $("#logo").children(":first").removeClass("text-center");
+  $("#logo").detach().prependTo("#logo-web");
+  $("#tag-line").detach().appendTo("#logo-web");
+  $("#tag-line").removeClass("text-center");
+}
+
+});
+
 function hideDeleteButton() {
 		var lists = $("#item-list").children("li");
 		for (i=0; i<lists.length-1; i++) {

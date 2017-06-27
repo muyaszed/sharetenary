@@ -7,7 +7,7 @@ class LoginForm
 	end
 
 	def sign_in(user)
-		fill_in("Login", with: user.username)
+		fill_in("user_login", with: user.username)
 		fill_in("Password", with: user.password)
 		click_on("Sign in")
 		self

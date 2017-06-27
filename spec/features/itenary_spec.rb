@@ -58,6 +58,15 @@ describe 'Navigate' do
 
     it "can only delete the last item" do
       item1 = Item.create(day: 1, desc: "Time to eat", itenary_id: @user.itenaries.first.id)
+      visit itenary_path(@user.itenaries.first.id)
+      click_on("Delete Item")
+      
+        click_on("Confirm", visible: false)
+      
+      
+      expect(page).not_to have_content("Time to eat")
+      
+      item1 = Item.create(day: 1, desc: "Time to eat", itenary_id: @user.itenaries.first.id)
       item2 = Item.create(day: 2, desc: "Time to sleep", itenary_id: @user.itenaries.first.id)
       visit itenary_path(@user.itenaries.first.id)
 
@@ -65,12 +74,7 @@ describe 'Navigate' do
       expect(page).to have_css("#delete-button-#{item2.id}")
       
       # find("#delete-button-#{item2.id}").click
-      click_on("Delete Item")
       
-        click_on("Confirm")
-      
-      
-      expect(page).not_to have_content("Time to sleep")
       
       
       

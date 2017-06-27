@@ -19,7 +19,7 @@ feature "visit profile page" do
 			expect(page).to have_css("#user-itenary-list")
 			expect(page).to have_css("#user-bookmarked-list")
 			expect(page).to have_css("#user-avatar")
-			expect(page).to have_css("#user-upload-button")
+			expect(page).to have_css("#edit-profile-button")
 			expect(page).not_to have_css(".follow-button")
 
 		end
@@ -37,11 +37,21 @@ feature "visit profile page" do
 
 		end
 
-		scenario "user can upload avatar image" do
-			login_form.visit_page.sign_in(user)
-			profile_page.visit_page(user).upload_avatar
+		# scenario "user can upload avatar image" do
+		# 	login_form.visit_page.sign_in(user)
+		# 	profile_page.visit_page(user).upload_avatar
 			
-			expect(page).to have_content("You have uploaded your avatar sucessfully")
+		# 	expect(page).to have_content("You have uploaded your avatar sucessfully")
+			
+		# 	expect(user.reload.profile.avatar_identifier).to eq("avatar.jpeg")
+
+		# end
+
+		scenario "user can edit profile" do
+			login_form.visit_page.sign_in(user)
+			profile_page.visit_edit_page(user).upload_avatar
+			
+			expect(page).to have_content("You have updated your profile successfully")
 			
 			expect(user.reload.profile.avatar_identifier).to eq("avatar.jpeg")
 

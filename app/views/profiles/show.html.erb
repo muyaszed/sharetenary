@@ -8,14 +8,11 @@
 			
 
 			<%if @profile.user_id == current_user.id%>
-				<div id="user-upload-button" class="small-12 column">
-					<%= form_for @profile, url: {method: :put} do |f| %>
-						<%= f.file_field :avatar %>
-						<%= f.submit %>
-					<% end %>
-						
-					
+
+				<div id="edit-profile-button" class="small-12 column">
+					<%= link_to "Edit Profile", edit_user_profile_path %>
 				</div>
+				
 			<%end%>
 		</div>
 

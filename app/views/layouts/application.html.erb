@@ -12,14 +12,22 @@
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= wicked_pdf_stylesheet_link_tag "application" -%>
+    
   </head>
-  <navbar>
-  <%=render 'shared/navbar'%>
-  </navbar>
-  <p class="notice"><%= notice %></p> 
-          <p class="alert"><%= alert %></p>
+  
+
           
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<%if flash[:notice]%>
+  <%= flash[:notice] %>
+<%elsif flash[:alert]%>
+  <%= flash[:alert] %>
+<%elsif flash[:error]%>
+  <% flash[:error].each do |msg|%>
+    <%= msg %>
+  <% end %>
+  
+<% end %>
 
 
   <body>

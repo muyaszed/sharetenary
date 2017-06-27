@@ -6,7 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :itenaries
-  has_one :profile
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
   has_many :authentications, dependent: :destroy 
   has_many :active_follows, class_name:  "Follow",
                                   foreign_key: "follower_id",

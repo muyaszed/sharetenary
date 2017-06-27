@@ -7,13 +7,18 @@ Rails.application.routes.draw do
   get 'likes/unlike_itenary'
 
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
 
   resources :itenaries 
   resources :items
-  resources :users, only: [:show, :index] do
-    resources :profiles, only: [:show, :update]
+  resources :users, only: [:show, :index, :update] do
+    resources :profiles, only: [:show, :edit, :update]
+    collection do
+      patch 'first_time_update_password'
+      get 'first_time_edit_password'
+    end
   end
   # resources :follows,       only: [:create, :destroy]
   post ':user_id/follow_user', to: 'follows#follow_user', as: :follow_user

@@ -16,3 +16,157 @@
 
  */
 @import "social-share-button";
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans');
+
+$main-font: 'Bree Serif', serif; 
+$second-font: 'Open Sans', sans-serif;
+
+$main-color: #86a19e;
+$second-color: #6bbaa7;
+$third-color: #6c648b;
+$fourth-color: #fba100;
+
+h1, h2, h3, h4, h5, h6, a {
+	font-family: $main-font;
+	color: $second-color;
+}
+
+
+//homepage mobile
+
+@media only screen {
+	header {
+		height: 400px;
+		background-image: asset-url("header-bg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+
+
+		#login-panel, #itenarary-panel {
+			height: 380px;
+			width: 60%;
+			background-color: $second-color;
+			position: relative;
+			margin: auto;
+			top: 200px;
+
+			#logo h1{
+				color: #fff;
+			}
+
+			#tag-line {
+
+				position: relative;
+				top: -15px;
+				h2 {
+					color: $main-color;
+					
+				}
+
+			}
+
+			#signin-button {
+				width: 100%;
+			}
+
+			
+		}
+
+		#itenarary-panel {
+			padding-top: 50px;
+			h3 {
+				color: #fff;
+			}
+		}
+
+		
+		
+	}
+
+	main {
+		height:200px;
+	}
+
+
+}
+
+@media only screen and (min-width: 40.063em) {
+	header {
+		height: 60vh;
+		background-image: asset-url("header-bg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 0;
+		margin: 0;
+
+
+		#login-panel, #itenarary-panel {
+			z-index: 5;
+			padding-top: 50px;
+			height: 350px;
+			width: 20%;
+			background-color: $second-color;
+			position: relative;
+			margin: auto;
+			top: 350px;
+			left: 200px;
+
+			
+
+			#login-button {
+				width: 100%;
+			}
+
+			
+		}
+
+		#upper-bar {
+			position: relative;
+			background-color: #2DCB73;
+			height: 20vh;
+			top: 210px;
+
+			#logo-web {
+				height: 100%;
+
+				#logo h1{
+				color: #fff;
+				
+			}
+
+			#tag-line {
+			
+				position: relative;
+				top: -15px;
+				h2 {
+					color: $main-color;
+					
+				}
+
+			}
+			}
+		}
+
+		#itenarary-panel {
+			padding-top: 50px;
+			h3 {
+				color: #fff;
+			}
+		}
+		
+	}
+
+	main {
+		position: relative;
+		height:30vh;
+	}
+
+}
+
+
+
+
+
+
+
+
