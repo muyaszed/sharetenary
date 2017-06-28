@@ -26,6 +26,7 @@ class Authentication < ApplicationRecord
     	end
     	
     	return_user.save!
+        
 
     	autenthication = self.create!(uid: auth.uid, provider: auth.provider, user_id: return_user.id)
     end

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+
   def show
   	@user = User.find(params[:id])
   end
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
   	
   	if @user.update(user_params)
   		bypass_sign_in(@user)
+      @user.first_time_password_changed = true
+      @user.save
   		redirect_to root_path, notice: "You have succesfully registered as a user."
   	else
   		
@@ -38,6 +42,9 @@ class UsersController < ApplicationController
   	end
 
   end
+
+  
+
 
   private
 

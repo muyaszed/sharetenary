@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 		if @user.persisted?
 			
-			if @user.sign_in_count == 0
+			if @user.first_time_password_changed == false
 				sign_in @user
 				redirect_to first_time_edit_password_users_path, notice: "Please update your password"
 			else
