@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :itenaries 
-  resources :items
+  resources :items do
+    resources :sub_items
+  end
   resources :users, only: [:show, :index, :update] do
     resources :profiles, only: [:show, :edit, :update]
     collection do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620194206) do
+ActiveRecord::Schema.define(version: 20170628171031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170620194206) do
 
   create_table "items", force: :cascade do |t|
     t.string "day"
-    t.text "desc"
+    t.text "location"
     t.integer "itenary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170620194206) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "total_cost"
     t.index ["user_id"], name: "index_itenaries_on_user_id"
   end
 
@@ -75,6 +76,19 @@ ActiveRecord::Schema.define(version: 20170620194206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+  end
+
+  create_table "sub_items", force: :cascade do |t|
+    t.string "start_time"
+    t.string "end_time"
+    t.string "attraction"
+    t.string "duration"
+    t.string "cost"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "story"
+    t.index ["item_id"], name: "index_sub_items_on_item_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,4 +111,5 @@ ActiveRecord::Schema.define(version: 20170620194206) do
   end
 
   add_foreign_key "authentications", "users"
+  add_foreign_key "sub_items", "items"
 end
