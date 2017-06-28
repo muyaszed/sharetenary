@@ -1,14 +1,15 @@
 <%= form_for @itenary do |f| -%>
+
   <div class="row">
     <div class="medium-12 columns">
-      <label>Title
+      <label>Itenarary title
         <%= f.text_field :title %>
         
       </label>
     </div>
     <div class="row">
     <div class="medium-12 columns">
-      <%= f.submit  %>
+      <%= f.submit "New Itenarary", class: "button" %>
     </div>
 <% end -%>
 

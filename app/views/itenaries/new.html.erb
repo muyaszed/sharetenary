@@ -1,5 +1,36 @@
-<div class="row">
-	<%= render "shared/form"%>
+<header class="row expanded">
+        
+	        <div id="itenarary-panel" class="text-center">  
+				  
+				<div class="row">
+					<%= render "shared/form"%>
 
 
-</div>
+				</div>
+			</div>
+		
+          
+        
+
+        
+
+</header>
+
+<div id="upper-bar" class="row expanded">
+		<% if !user_signed_in? %>
+        	<div class="row">
+            	<div class="small-12 column" id="logo-web">
+              
+            	</div>
+        	</div>
+        <% end %>
+          
+        </div>
+
+<main class="row expanded">
+  
+</main>
+
+<footer class="row text-center expanded">
+    <h4>Copyright 2017</h4>
+</footer>

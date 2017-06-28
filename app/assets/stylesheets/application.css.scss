@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 
+
 //homepage mobile
 
 @media only screen {
@@ -91,43 +92,64 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 @media only screen and (min-width: 40.063em) {
+	.menu {
+	background-color: #2F3C42;
+}
 	header {
 		height: 60vh;
 		background-image: asset-url("header-bg.jpg");
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 110%;
+		background-position: 0% 50%;
 		padding: 0;
 		margin: 0;
 
 
-		#login-panel, #itenarary-panel {
+		#login-panel {
 			z-index: 5;
-			padding-top: 50px;
-			height: 350px;
-			width: 20%;
+			padding-top: 2%;
+			height: 400px;
+			width: 300px;
 			background-color: $second-color;
 			position: relative;
 			margin: auto;
-			top: 350px;
-			left: 200px;
+			top: 20vh;
+			left: 20%;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 			
 
-			#login-button {
+			#signin-button, #facebook-signin {
 				width: 100%;
 			}
 
 			
 		}
 
-		#upper-bar {
+		
+
+		#itenarary-panel {
+			width: 800px;
+			position: relative;
+			// margin: auto;
+			top: 20vh;
+			z-index: 5;
+			padding: 30px 20px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			// left: -400px;
+		}
+		
+	}
+
+	#upper-bar {
 			position: relative;
 			background-color: #2DCB73;
 			height: 20vh;
-			top: 210px;
+			// top: 110px;
 
 			#logo-web {
 				height: 100%;
+				padding: 0 17%;
 
 				#logo h1{
 				color: #fff;
@@ -137,9 +159,13 @@ h1, h2, h3, h4, h5, h6, a {
 			#tag-line {
 			
 				position: relative;
+				left: 20px;
 				top: -15px;
+
+					font-size: 1.2em;
+
 				h2 {
-					color: $main-color;
+
 					
 				}
 
@@ -147,18 +173,9 @@ h1, h2, h3, h4, h5, h6, a {
 			}
 		}
 
-		#itenarary-panel {
-			padding-top: 50px;
-			h3 {
-				color: #fff;
-			}
-		}
-		
-	}
-
 	main {
 		position: relative;
-		height:30vh;
+		height:10vh;
 	}
 
 }

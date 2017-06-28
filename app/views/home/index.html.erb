@@ -1,84 +1,90 @@
 
 
 <header class="row expanded">
-          
-        <div id="login-panel">
-	          <div id="logo" class="row">
-		            <div class="small-12 column text-center">
-		              <h1>Sharetinerary</h1>
+        <%if user_signed_in?%>
+	        <div id="itenarary-panel" class="text-center">  
+				  
+				<%= link_to "New Itenarary", new_itenary_path, id: "new-itenarary-button", class: "button large expanded" %>
+			</div>
+		<%else%>
+			<div id="login-panel">
+
+		          <div id="logo" class="row">
+			            <div class="small-12 column text-center">
+			              <h1>Sharetinerary</h1>
+			            </div>
+		          </div>
+
+		          <div id="tag-line" class="row text-center">
+		              Share your planet
+		          </div>
+
+	        	    <div id="login-form" class="row">
+		            	<div class="small-12 column">
+		              
+		              		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+					
+			                <div class="row">
+			                  <div class="small-10 small-centered columns">
+			                    <label>Username / E-mail
+			                      <%= f.text_field :login, autofocus: true %>
+			                    </label>
+			                  </div>
+			                </div>
+
+			                <div class="row">
+			                  <div class="small-10 small-centered columns">
+			                    <label>Password
+			                      <%= f.password_field :password, autocomplete: "off" %>
+			                    </label>
+			                  </div>
+			                </div>
+
+							<div class="row">
+			                  <div class="small-10 small-centered columns">
+				                <% if devise_mapping.rememberable? -%>
+							    	<label>
+								      <%= f.check_box :remember_me %>
+								      <%= f.label :remember_me %>
+							    	</label>
+							  	<% end -%>
+							  </div>
+							 </div>
+
+			                <div class="row">
+			                  <div class="small-10 small-centered columns">
+			                    <%= f.submit "Sign in", id: "signin-button", class: "button"%>
+			                  </div>
+			                </div>
+
+							<% end %>
+
+			                <div class="row">
+			                  <div class="small-10 small-centered columns">
+			                    <%= link_to "Sign-in with Facebook", user_facebook_omniauth_authorize_path, id: "facebook-signin", class: "button" %></li>
+			                  </div>
+			                </div> 
 		            </div>
-	          </div>
-	          <div id="tag-line" class="row text-center">
-	              Share your planet
-	          </div>
-			  <%if user_signed_in?%>
-				<%= link_to "New Itenarary", new_itenary_path, id: "new-itenarary-button", class: "button" %>
-
-			  <%else%>
-
-        		<div id="login-form" class="row">
-	            <div class="small-12 column">
-	              
-	              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-				
-	                <div class="row">
-	                  <div class="small-10 small-centered columns">
-	                    <label>Username / E-mail
-	                      <%= f.text_field :login, autofocus: true %>
-	                    </label>
-	                  </div>
-	                </div>
-
-	                <div class="row">
-	                  <div class="small-10 small-centered columns">
-	                    <label>Password
-	                      <%= f.password_field :password, autocomplete: "off" %>
-	                    </label>
-	                  </div>
-	                </div>
-
-					<div class="row">
-	                  <div class="small-10 small-centered columns">
-		                <% if devise_mapping.rememberable? -%>
-					    	<label>
-						      <%= f.check_box :remember_me %>
-						      <%= f.label :remember_me %>
-					    	</label>
-					  	<% end -%>
-					  </div>
-					 </div>
-
-	                <div class="row">
-	                  <div class="small-10 small-centered columns">
-	                    <%= f.submit "Sign in", id: "signin-button", class: "button"%>
-	                  </div>
-	                </div>
-
-	                <div class="row">
-	                  <div class="small-10 small-centered columns">
-	                    <%= link_to "Sign-in with Facebook", user_facebook_omniauth_authorize_path, id: "facebook-signin", class: "button" %></li>
-	                  </div>
-	                </div>
-
-
-	              <% end %>
-	            </div>
-       	 		</div>
-       	 	<% end %>
+       	 	</div>
+       	<% end %>
           
-        </div>
+        
 
-        <div id="upper-bar" class="row expanded">
+        
+
+</header>
+
+<div id="upper-bar" class="row expanded">
+		<% if !user_signed_in? %>
         	<div class="row">
             	<div class="small-12 column" id="logo-web">
               
             	</div>
         	</div>
+        <% end %>
           
         </div>
-
-</header>
 
 <main class="row expanded">
   
