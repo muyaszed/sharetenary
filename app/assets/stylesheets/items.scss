@@ -1,3 +1,91 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-header-no-image {
+	// background-image: asset-url("item-header.jpg");
+	background: linear-gradient(to right, rgba(0,130,170,1) 30%,rgba(0,130,170,0)), asset-url("item-header.jpg");
+	background: -webkit-linear-gradient(left, rgba(0,130,170,1) 30%,rgba(0,130,170,0)), asset-url("item-header.jpg"); /* Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(0,130,170,1) 30%,rgba(0,130,170,0)), asset-url("item-header.jpg"); /* Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(0,130,170,1) 30%,rgba(0,130,170,0)), asset-url("item-header.jpg"); /* Firefox 3.6 to 15 */
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 50%;
+}
+
+
+.inner-header {
+
+	position: relative;
+	top: -250px;
+	left: 40px;
+
+	.item-calendar {
+		position: relative;
+		left: 100px;
+		top: 100px;
+		i {
+			color: white;	
+		}
+		
+	}
+
+	.item-day {
+
+		h2 {
+			color : white;	
+		}
+		
+		position: relative;
+		left: 150px;
+		top: 55px;
+	}
+
+	.item-location {
+
+		h3 {
+			color: white;
+		}
+
+		position: relative;
+		left: 100px;
+		top: 50px;
+
+	}
+}
+
+.item-detail {
+	background-color: white;
+	// min-height: 300px;
+	// border: 1px solid;
+	position: relative;
+	top: -164px;
+	display: flex;
+	border-bottom: 1px solid;
+
+	.item-time {
+		background-color: $second-color;
+		padding: 10px 0 0 30px;
+		min-height: 100px;
+		h4 {
+				color: snow;
+			}
+
+		
+	}
+
+	.item-story {
+		min-height: 100%;
+
+		
+			p {
+				font-size: 1em;
+				color: #2F3C42;
+				font-family: $second-font;
+			}
+		
+		
+	}
+}
+

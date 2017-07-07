@@ -64,6 +64,9 @@ gem "google-api-client", "> 0.8.5", "< 0.9"
 gem "mime-types"
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'cocoon'
+gem "font-awesome-rails"
+
 
 
 

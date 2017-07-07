@@ -7,7 +7,8 @@ class ItenariesController < ApplicationController
 
 	def show 
 		@itenary = Itenary.find(params[:id])
-		@item = Item.new
+		@item = Item.new(day: Item.generate_day(@itenary.id, params[:action]))
+		
 		@items = @itenary.items.order(created_at: :asc).all
 		gon.currentItems = @items
 		respond_to do |format|

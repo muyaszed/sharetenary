@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,21 +11,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
+ 
 
  */
+@import "variable";
+@import "settings";
+
+@import "*";
+@import "**/*";
+
 @import "social-share-button";
-@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
+@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+@import "font-awesome";
 
-$main-font: 'Bree Serif', serif; 
-$second-font: 'Open Sans', sans-serif;
-
-$main-color: #86a19e;
-$second-color: #6bbaa7;
-$third-color: #6c648b;
-$fourth-color: #fba100;
 
 h1, h2, h3, h4, h5, h6, a {
 	font-family: $main-font;
@@ -92,6 +92,17 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 @media only screen and (min-width: 40.063em) {
+
+	navbar {
+		a {
+			font-family: $second-font;
+		}
+	}
+
+	body {
+		position: relative;
+	}
+
 	.menu {
 	background-color: #2F3C42;
 }
@@ -164,9 +175,10 @@ h1, h2, h3, h4, h5, h6, a {
 
 					font-size: 1.2em;
 
-				h2 {
+				h4 {
 
-					
+					font-family: $second-font;
+					color: black;
 				}
 
 			}
@@ -179,6 +191,8 @@ h1, h2, h3, h4, h5, h6, a {
 	}
 
 }
+
+
 
 
 

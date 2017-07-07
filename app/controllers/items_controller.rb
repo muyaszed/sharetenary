@@ -1,14 +1,22 @@
 class ItemsController < ApplicationController
+
+
+
 	def create
 		
-		@item = Item.create(item_params)
+		@item = Item.create!(item_params)
+
+		@item.update(day: Item.generate_day(@item.itenary_id, params[:action]))
+		byebug
+		# @item.generate_day
+		# byebug
 		# @item.itenary_id = params[:itenary_id]
 
 
 
 		respond_to do |format|
 			
-			if @item.save!
+			if @item.save
 				# format.html { redirect_to @item.itenary, notice: 'Comment was successfully created.' }
 				format.js 
 			else
@@ -49,6 +57,7 @@ class ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:day, :desc, :itenary_id)
+		# params.require(:item).permit(:day, :location, :itenary_id, :sub_item_attributes => [:id, :start_date, :end_date, :attraction, :story, :cost, :_destroy])
+		params.require(:item).permit!
 	end
 end

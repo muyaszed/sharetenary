@@ -1,0 +1,56 @@
+    
+<div class="nested-fields">
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Start time
+          <%= f.time_field :start_time, value: f.object.start_time %>
+          
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>End time
+          <%= f.time_field :end_time, value: f.object.end_time  %>
+          
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Attraction
+          <%= f.text_area :attraction %>
+          
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Story
+          <%= f.text_area :story %>
+          
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <label>Cost(Optional)
+          <%= f.text_field :cost %>
+          
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        
+          
+          <%= link_to_remove_association "Remove", f, class: "button" %>
+          
+        
+      </div>
+    </div>
+    
+</div>
+

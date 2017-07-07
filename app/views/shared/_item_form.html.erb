@@ -1,8 +1,8 @@
 <%= form_for(@item, format: :js, remote: true) do |f| %>
   <div class="row">
     <div class="medium-12 columns">
-      <label>Day <span id="day-numbering"></span>
-        <%= f.hidden_field :day%>
+      <label id="day-label">Day <%= @item.day %>
+       
         
       </label>
     </div>
@@ -10,22 +10,35 @@
 
   <div class="row">
     <div class="medium-12 columns">
-      <label>Description
-        <%= f.text_field :desc %>
+      <label>Location
+        <%= f.text_field :location %>
         
       </label>
     </div>
   </div>
+  
+  <%= f.fields_for :sub_items do |ff| %>
+  
+    <%= render "itenaries/sub_item_fields", f: ff %>
+  <% end %>
 
   <div class="row">
     <div class="medium-12 columns">
+
      <%=f.hidden_field :itenary_id, :value => @itenary.id%>
     </div>
   </div>
 
+ 
+
   <div class="row">
     <div class="medium-12 columns">
-      <%= f.submit "Create" %>
+      <div class="button-group">
+        <%= link_to_add_association "Add a place", f, :sub_items, {class: "button"} %>
+        <%= f.submit "Create", class: "button button-default", id: "submit-item"  %>
+        
+      </div>
+      
     </div>
   </div>
   

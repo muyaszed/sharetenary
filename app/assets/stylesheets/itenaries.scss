@@ -1,12 +1,41 @@
 // Place all the styles related to the itenaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#item-form, .edit-item-form, #upload-avatar-form {
+#item-form, .edit-item-form, .delete-item-form, #upload-avatar-form {
 	display: none;
-	background: yellow;
 	position: absolute;
-	width: 500px;
-	height: 300px;
-	top: 20vh;
-	left: 30vw;
+	background-color: rgba(107, 186, 167, 0.9);
+	width: 100%;
+	min-height: 100%;
+	top: 0;
+	left: 0;
+
+
+	label {
+		font-family: $second-font;
+	}
+
+	.nested-fields {
+		border: solid 1px;
+		margin-bottom: 10px;
+
+		.row {
+			margin: 0;	
+		}
+		
+	}
+
+	
 }
+
+.delete-item-form {
+	width: 50vw;
+    left: 25vw;
+    min-height: 25vh;
+    top: 25%;
+    padding: 9% 6%;
+}
+
+
+
+

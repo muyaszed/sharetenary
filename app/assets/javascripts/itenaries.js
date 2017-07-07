@@ -1,29 +1,29 @@
 $(document).ready(function() {
 
-	$("#new-item").on("click", function() {
-		// $("#item-list").load(" #item-list");
-		$("#item-form").show();
-		console.log($("#item-list").children("li").length)
-		if ($("#item-list").children("li").length === 0) {
-			$("#day-numbering").html("1");
-			$("#item_day").val("1");
-		}else {
-			// console.log($("#item-list").children("li").last().attr("id").slice(-1));
-			$("#day-numbering").html(
-				
-				parseInt($("#item-list").children("li").last().attr("id").slice(-1)) + 1
-			);
-			$("#new_item").find("#item_day").val(
-				parseInt($("#item-list").children("li").last().attr("id").slice(-1)) + 1	
-			);
-		}
-		$("#new_item").find("input[type=text]").not("#item_day").val("");
-	});
+	
 
-	$(".close-button").on("click", function() {
-		$("#item-form").hide();
-		$(".edit-item-form").hide();
-	})
+// 	$(".add_fields").on("click", function() {
+// 		console.log($(this).data());
+// 		time = new Date().getTime();
+// 		regexp = new RegExp($(this).data('id'), 'g');
+// console.log(time);
+// 		console.log(regexp);
+// 		$(this).before($(this).data('fields').replace(regexp, time))
+// 		event.preventDefault();
+// 	});
+
+// 	 $("a.remove_fields").on("click", function() { 
+//     console.log("Hellor");
+// 	    $(this).prev('input[type=hidden]').val('1');
+// 	    $(this).closest('#sub-item-wrapper').hide();
+// 	    event.preventDefault();
+// 	  });
+
+	
+	// $(".close-button").on("click", function() {
+	// 	$("#item-form").hide();
+	// 	$(".edit-item-form").hide();
+	// })
 
 	//allow only the last item to have delete button
 	// hideDeleteButton();
@@ -36,12 +36,18 @@ $(document).ready(function() {
 
 function openEdit(id) {
 		
-		var num = id.slice(12);
-		console.log(num);
-		$("#edit-item-form-"+num).show();
-	}
+		$("#edit-item-form-"+id).show();
+}
 
 function openDel(id) {
-	var num = id.slice(14);
-	$("#delete-item-form-"+num).show();
+	
+	$("#delete-item-form-"+id).show();
+}
+
+function closeEdit(id) {
+	$("#edit-item-form-"+id).hide();
+}
+
+function closeDel(id) {
+	$("#delete-item-form-"+id).hide();
 }

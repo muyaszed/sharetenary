@@ -1,13 +1,16 @@
-$(document).ready(function() {
+
 	
        
        $("#item-form").hide();
-       $("<%= escape_javascript(render @item) %>").appendTo("#item-list");
-	   $("#item-list").load(location.href + " li");
+       
+	   $("#item-list").load(location.href + " li.list-item");
+	   $("#item-form").load(location.href + " #item-form-wrapper");
+		$('.item-pics').slick();
+
       	<!-- hideDeleteButton(); -->
        
 
 
 
 
-  });
+  
