@@ -6,6 +6,7 @@
 
 	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 	<li><%= link_to "My Dashboard", user_profile_path(current_user.id, current_user.profile.id)%></li>
+	<li><%= link_to "New Itinerary", new_itenary_path%></li>
 	<li><%= link_to "Browse the Planet", itenaries_path%></li>
 <%else%> 
 	<li><%= link_to "Sign up", new_user_registration_path%></li>

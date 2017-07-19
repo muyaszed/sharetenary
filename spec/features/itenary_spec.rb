@@ -12,10 +12,15 @@ describe 'Navigate' do
 		
   context 'registered user' do
 
+    it "can browse itenary" do
+      visit itenaries_path
+      expect(page).to have_content('Latest Itineraries')
+    end
+
   	it "can create itenary" do
   		visit new_itenary_path
-  		fill_in "Title", with: 'Visit Korea'
-  		click_link_or_button "Create"
+  		fill_in "Itenarary title", with: 'Visit Korea'
+  		click_link_or_button "New Itenarary"
   		expect(page).to have_content('Visit Korea')
   		
   	end
@@ -93,6 +98,8 @@ describe 'Navigate' do
       visit new_itenary_path
       expect(current_path).to eq(new_user_session_path)
     end
+
+
   end
 
 

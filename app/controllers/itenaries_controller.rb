@@ -1,8 +1,12 @@
 class ItenariesController < ApplicationController
-	before_action :authenticate_user!, only: [:show, :new, :edit, :udate, :destroy]
+	before_action :authenticate_user!, only: [:show, :new, :edit, :udate, :destroy, :index]
 
 	def new 
 		@itenary = Itenary.new
+	end
+
+	def index
+		@itenaries = Itenary.all
 	end
 
 	def show 
