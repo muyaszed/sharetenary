@@ -29,8 +29,8 @@
     <div class="row">
       <div class="medium-12 columns">
         <label>Story
-          <%= f.text_area :story %>
-          
+        
+          <%= f.cktext_area :story, cols:40, class: "ckeditor", id: "e_#{f.object.id}"%>
         </label>
       </div>
     </div>

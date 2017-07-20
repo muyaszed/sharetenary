@@ -5,20 +5,22 @@ class ItemsController < ApplicationController
 	def create
 		
 		@item = Item.create!(item_params)
-
+		
+		@id = params[:item][:sub_items_attributes].keys[0].to_i
+		
 		@item.update(day: Item.generate_day(@item.itenary_id, params[:action]))
-		byebug
+		
 		# @item.generate_day
 		# byebug
 		# @item.itenary_id = params[:itenary_id]
 
 
-
+		# byebug
 		respond_to do |format|
 			
 			if @item.save
-				# format.html { redirect_to @item.itenary, notice: 'Comment was successfully created.' }
-				format.js 
+				format.html { redirect_to itenary_path(@item.itenary_id), notice: 'Item was successfully created.' }
+				# format.js 
 			else
 				format.html {redirect_to itenary_path(params[:itenary_id])}
 			end 
@@ -33,9 +35,10 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		respond_to do |format|
 	      if @item.update(item_params)
-	        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-	        format.json { render :show, status: :ok, location: @item }
-	        format.js
+	      	format.html { redirect_to itenary_path(@item.itenary_id), notice: 'Item was successfully updated.' }
+	        # format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+	        # format.json { render :show, status: :ok, location: @item }
+	        # format.js
 	      else
 	        format.html { render :edit }
 	        format.json { render json: @post.errors, status: :unprocessable_entity }

@@ -66,6 +66,8 @@ gem 'figaro'
 gem 'omniauth-facebook'
 gem 'cocoon'
 gem "font-awesome-rails"
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 
 
 

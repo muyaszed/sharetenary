@@ -1,4 +1,4 @@
-<%= form_for(@item, format: :js, remote: true) do |f| %>
+<%= form_for @item do |f| %>
   <div class="row">
     <div class="medium-12 columns">
       <label id="day-label">Day <%= @item.day %>
@@ -19,7 +19,7 @@
   
   <%= f.fields_for :sub_items do |ff| %>
   
-    <%= render "itenaries/sub_item_fields", f: ff %>
+    <%= render "itenaries/sub_item_fields", f: ff%>
   <% end %>
 
   <div class="row">
@@ -33,8 +33,8 @@
 
   <div class="row">
     <div class="medium-12 columns">
-      <div class="button-group">
-        <%= link_to_add_association "Add a place", f, :sub_items, {class: "button"} %>
+      <div class="button-group add-sub-item">
+        <%= link_to_add_association "Add a place", f, :sub_items, 'data-association-insertion-traversal' => 'closest',class: "button" %>
         <%= f.submit "Create", class: "button button-default", id: "submit-item"  %>
         
       </div>

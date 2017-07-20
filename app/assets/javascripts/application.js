@@ -16,10 +16,12 @@
 //= require turbolinks
 //= require social-share-button
 //= require cocoon
+//= require ckeditor/init
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
   $(function(){ $(document).foundation(); });
+  
 
   if (Foundation.MediaQuery.atLeast('medium')) {
 	// console.log($("#logo").children(":first").html());
@@ -32,17 +34,41 @@ $(document).on('turbolinks:load', function() {
 	$("#new-item").on("click", function() {
 		
 		$("#item-form").show();
-		
+		 
 	});
-
 	
+
+	hideDeleteButton();
+
+	$(".add-sub-item").on('cocoon:after-insert', function() {
+		console.log($(".ckeditor").closest('form').attr('id'));
+        var id = $(".ckeditor").closest("form.edit_item").attr('id');
+		id = id.split("_");
+		id = id[id.length-1];
+        $('.ckeditor').attr('id', $('#ckeditor').attr('id')+id);
+      });
 
 	
 });
 
+function makeIdForEditor() {
+	
+	$(".my-ckeditor").each(function() {
+		var id = $(this).closest("form.edit_item").attr('id');
+		id = id.split("_");
+		id = id[id.length-1];
+		console.log(id);
+		var newId = $(this).attr("id")+id;
+		CKEDITOR.replace($(this).attr("id"));
+		
+
+	});
+}
+
 function closeNewItem() {
 
 		$("#item-form").hide();
+		$(window).scrollTop(0);
 
 }
 
@@ -52,9 +78,9 @@ function myFunction() {
 
 
 
-// function hideDeleteButton() {
-// 		var lists = $("#item-list").children("li");
-// 		for (i=0; i<lists.length-1; i++) {
-// 			$(lists[i]).find(".delete-button").css("visibility", "hidden");
-// 		}
-// 	}
+function hideDeleteButton() {
+		var lists = $("#item-list").children("li");
+		for (i=0; i<lists.length-1; i++) {
+			$(lists[i]).find(".delete-button").css("visibility", "hidden");
+		}
+	}

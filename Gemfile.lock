@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 752bca97f78e5c5df3fbd876e51a06918da804e2
+  specs:
+    ckeditor (4.2.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: ead87017a6c15adce66a87dce8ee2ece91d0d27c
   branch: rails-5
@@ -75,6 +83,9 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.10)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -327,6 +338,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave (~> 1.0)
+  ckeditor!
   cocoon
   coffee-rails (~> 4.2)
   devise

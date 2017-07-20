@@ -2,12 +2,15 @@
 	
        
        $("#item-form").hide();
-       
-	   $("#item-list").load(location.href + " li.list-item");
-	   $("#item-form").load(location.href + " #item-form-wrapper");
-		$('.item-pics').slick();
+       $('#item-list').append("<%= j render @item %>");
+       $("#item-form").load(location.href + " #item-form-wrapper");
 
-      	<!-- hideDeleteButton(); -->
+       
+	   
+
+      	hideDeleteButton();
+
+      	
        
 
 

@@ -38,27 +38,27 @@
 				</div>
 				<div class="small-8 column item-story">
 					
-						<p><%= sub_item.story %></p>
+						<p><%= sub_item.story.html_safe %></p>
 					
 				</div>
 			</div>
 	
 			<% end %>
 		
-			<div class="row">
+			<div class="row item-buttons">
 				
 				
 				<div class="small-1 column">
 					<%if item.itenary.user_id == current_user.id%>
-					<p><%=link_to 'Edit Item', 'javascript:void(0)', id: "edit-button-#{item.id}", class: "edit-button button button-default", :onclick => "openEdit(#{item.id})"%></p>
+					<p><%=link_to 'Edit Item', 'javascript:void(0)', id: "edit-button-#{item.id}", class: "edit-button button button-default", :onclick => "openEdit(#{item.id})" %></p>
 					<%end%>
 				</div>
-				<div class="small-1 column">
-					<% if item == item.itenary.items.last %>
+				<div class="small-1 column delete-button-wrap">
+					
 						<%if item.itenary.user_id == current_user.id%>
 						<p><%=link_to 'Delete Item', 'javascript:void(0)', id: "delete-button-#{item.id}", class: "delete-button button button-default", :onclick => "openDel(#{item.id})"%></p>
 						<%end%>
-					<% end %>
+					
 				</div>
 					
 			</div>

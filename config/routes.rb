@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  mount Ckeditor::Engine => '/ckeditor'
   get 'likes/like_itenary'
 
   get 'likes/unlike_itenary'
