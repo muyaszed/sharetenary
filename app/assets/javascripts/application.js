@@ -40,13 +40,13 @@ $(document).on('turbolinks:load', function() {
 
 	hideDeleteButton();
 
-	$(".add-sub-item").on('cocoon:after-insert', function() {
-		console.log($(".ckeditor").closest('form').attr('id'));
-        var id = $(".ckeditor").closest("form.edit_item").attr('id');
-		id = id.split("_");
-		id = id[id.length-1];
-        $('.ckeditor').attr('id', $('#ckeditor').attr('id')+id);
-      });
+	// $(".add-sub-item").on('cocoon:after-insert', function() {
+	// 	console.log($(".ckeditor").closest('form').attr('id'));
+ //        var id = $(".ckeditor").closest("form.edit_item").attr('id');
+	// 	id = id.split("_");
+	// 	id = id[id.length-1];
+ //        $('.ckeditor').attr('id', $('#ckeditor').attr('id')+id);
+ //      });
 
 	
 });
