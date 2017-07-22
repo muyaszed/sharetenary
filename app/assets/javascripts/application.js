@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', function() {
 
 	window.fbAsyncInit = function() {
 	    FB.init({
-	      appId            : '275181242955107',
+	      appId            : '241409313026138',
 	      autoLogAppEvents : true,
 	      xfbml            : true,
 	      version          : 'v2.10'

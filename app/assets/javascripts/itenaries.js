@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	
 	$("#shareBtn").on("click", function(){
-		
+		console.log(gon.currentURL);
 		FB.ui({
 	    method: 'share',
 	    display: 'popup',
