@@ -1,13 +1,19 @@
 
 $(document).ready(function() {
 
-	document.getElementById('shareBtn').onclick = function() {
-	  FB.ui({
+	
+	$("#shareBtn").on("click", function(){
+		
+		FB.ui({
 	    method: 'share',
 	    display: 'popup',
 	    href: gon.currentURL,
 	  }, function(response){});
-	}	
+
+
+	});
+	  
+	
 
 
 
