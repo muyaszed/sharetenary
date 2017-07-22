@@ -6,6 +6,11 @@
      <% end %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% if @itenary %>
+    <meta property=“og:type” content=“article” />
+    <meta property=“og:title” content="<%= @itenary.title %>"/>
+    <meta property=“og:url” content=“<%= request.original_url %>" /> 
+    <% end %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
     <%= include_gon %>
