@@ -53,9 +53,10 @@
 		</div>
 		
 	<%end%>
-	<div class="small-4 column">
+	<div class="small-4 column" data-turbolinks="false">
 		<%= social_share_button_tag(@itenary.title, :allow_sites => %w(twitter facebook)) %>
-		<div id="shareBtn" class="button">Share</div>
+		<%=link_to 'Share', 'javascript:void(0)', id: "shareBtn", class: "button" %>
+		
 		<%= link_to 'Create PDF document', itenary_path(@itenary, :format => :pdf) %>
 	</div>
 		
