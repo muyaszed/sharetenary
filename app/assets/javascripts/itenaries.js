@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
 		FB.ui({
 	    method: 'share',
 	    display: 'popup',
-	    href: gon.currentURL+"/",
+	    href: gon.currentURL,
 	  }, function(response){});
 
 
