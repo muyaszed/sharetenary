@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+	before_action :authenticate_user!, only: [:bookmark_itenary, :unbookmark_itenary]
 	def bookmark_itenary
 
 		@itenary = Itenary.find(params[:id])

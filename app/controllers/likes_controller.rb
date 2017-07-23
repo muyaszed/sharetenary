@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+	before_action :authenticate_user!, only: [:like_itenary, :unlike_itenary]
   def like_itenary
   		@itenary = Itenary.find(params[:id])
 		if @itenary.like current_user
