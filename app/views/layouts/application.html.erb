@@ -12,7 +12,7 @@
     <meta property="og:title" content="<%= @itenary.title %>"/>
     <meta property="og:description" content="<%= @itenary.title %>"/>
     <meta property="og:locale" content="en_US"/>
-    <meta property="og:url" content="<%= request.original_url %>" /> 
+    <meta property="og:url" content="<%= request.original_url %>/" /> 
     <% end %>
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
