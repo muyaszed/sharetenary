@@ -2,11 +2,13 @@ $(document).on('turbolinks:load', function() {
 
 	
 	$("#shareBtn").on("click", function(){
-		console.log(gon.currentURL);
+		
+		var theUrl = gon.currentURL+"/";
+		console.log(theUrl);
 		FB.ui({
 	    method: 'share',
 	    display: 'popup',
-	    href: gon.currentURL,
+	    href: theUrl,
 	  }, function(response){});
 
 
