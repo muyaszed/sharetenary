@@ -4,8 +4,10 @@
 
 <div class="row small-up-4">
 	<% @itenaries.each do |itenary| %>
-	<div class="column column-block index-box">
-		<h4><%= link_to "#{itenary.title}", itenary_path(itenary.id) %></h4>
+	<div class="column column-block">
+		<div class="index-box">
+			<h4><%= link_to "#{itenary.title}", itenary_path(itenary.id) %></h4>
+		</div>	
 	</div>
 	<% end %>
 </div>

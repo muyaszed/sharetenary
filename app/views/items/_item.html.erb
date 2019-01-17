@@ -3,10 +3,8 @@
 	<div id="item-<%=item.id%>" class="small-12 column">
 
 
-			<div class="row item-header-no-image">
+			<div class="row item-header-no-image"></div>
 
-				
-			</div>
 			<div class="row inner-header">
 				<div class="medium-4 column">
 					<div class="row">
@@ -29,42 +27,46 @@
 				<div class="medium-4 column"></div>
 			</div>
 
-			<% item.sub_items.each do |sub_item| %>
+		<% item.sub_items.each do |sub_item| %>
 			<div class="row item-detail">
 				<div class="small-4 column item-time">
 					<h4 class="item-attract"><%=sub_item.attraction %></h4>
-						<h4 class="item-duration">From: <%=sub_item.start_time %> To: <%=sub_item.end_time %></h4>
+					<h4 class="item-duration">From: <%=sub_item.start_time %> To: <%=sub_item.end_time %></h4>
 					
 				</div>
 				<div class="small-8 column item-story">
 					
-						<p><%= sub_item.story.html_safe %></p>
+					<p><%= sub_item.story.html_safe %></p>
 					
 				</div>
 			</div>
 	
-			<% end %>
+		<% end %>
 		
-			<div class="row item-buttons">
-
+			<div>
+				<ul class="menu">
+					
+				
 
 				<% if user_signed_in? %>
 				
-				<%if item.itenary.user_id == current_user.id%>
-				<div class="small-1 column">
-					
-					<p><%=link_to 'Edit Item', 'javascript:void(0)', id: "edit-button-#{item.id}", class: "edit-button button button-default", :onclick => "openEdit(#{item.id})" %></p>
-					
-				</div>
-				<div class="small-1 column delete-button-wrap">
-					
+					<%if item.itenary.user_id == current_user.id%>
+					<li>
 						
-						<p><%=link_to 'Delete Item', 'javascript:void(0)', id: "delete-button-#{item.id}", class: "delete-button button button-default", :onclick => "openDel(#{item.id})"%></p>
+						<p><%=link_to 'Edit Item', 'javascript:void(0)', id: "edit-button-#{item.id}", class: "edit-button button button-default", :onclick => "openEdit(#{item.id})" %></p>
 						
-					
-				</div>
-				<%end%>
+					</li>
+					<li>
+						
+							
+							<p><%=link_to 'Delete Item', 'javascript:void(0)', id: "delete-button-#{item.id}", class: "delete-button button button-default", :onclick => "openDel(#{item.id})"%></p>
+							
+						
+					</li>
+					<%end%>
 				<% end %>
+
+				</ul>
 					
 			</div>
 

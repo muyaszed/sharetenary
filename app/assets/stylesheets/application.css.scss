@@ -95,18 +95,22 @@ h1, h2, h3, h4, h5, h6, a {
 @media only screen and (min-width: 40.063em) {
 
 	navbar {
-		a {
-			font-family: $second-font;
+
+		.menu {
+			background-color: #2F3C42;
+
+			a {
+				font-family: $second-font;
+			}
 		}
+		
 	}
 
 	body {
 		position: relative;
 	}
 
-	.menu {
-	background-color: #2F3C42;
-}
+	
 	header {
 		height: 60vh;
 		background-image: asset-url("header-bg.jpg");
